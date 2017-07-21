@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-8">
+          <input [(ngModel)]="newBoard" type="text" class="form-control ">
+        </div>
+        <div class="col-md-4">
+          <button
+            (click)="addBoard()"
+            class="btn btn-primary"
+          >
+            add board</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div *ngFor="let board of data.boards" class="col-md-4">
+      <div class="board ">
+        <h2 class="pull-left">{{board.name}}</h2>
+        <button
+          (click)="removeBoard(board.id)"
+          class="btn btn-danger pull-right"
+        >X</button>
+        <div class="clearfix"></div>
+        <app-tasks [tasks]="board.tasks"></app-tasks>
+      </div>
+    </div>
+  </div>
+</div>
